@@ -20,7 +20,7 @@ public class IntroWriteProAction implements Action {
 		int fileSize = 10 * 1920 * 1080;
 		String realFolder = "C:/Upload";
 		MultipartRequest multi = new MultipartRequest(request, realFolder, fileSize, "UTF-8", new DefaultFileRenamePolicy());
-		intro = new Intro();
+		intro = new Intro(); 
 		intro.setContents(request.getParameter("contents"));
 		intro.setImg1(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
 		intro.setImg2(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
