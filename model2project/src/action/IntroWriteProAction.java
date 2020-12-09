@@ -1,8 +1,6 @@
 package action;
 
 import java.io.PrintWriter;
-
-
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,19 +17,20 @@ public class IntroWriteProAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = null;
 		Intro intro = null;
-//		String realFolder = "";
-//		String saveFolder = "/boardUpload";
-		int fileSize = 5 * 1024 * 1024;
-//		ServletContext context = request.getServletContext();
-//		realFolder = context.getRealPath(saveFolder);
-		String realFolder = "C:/boardUpload";
+		int fileSize = 10 * 1920 * 1080;
+		String realFolder = "C:/Upload";
 		MultipartRequest multi = new MultipartRequest(request, realFolder, fileSize, "UTF-8", new DefaultFileRenamePolicy());
 		intro = new Intro();
-//		intro.setNumber(Integer(Integer.parseInt(request.getParameter("Number"))); 인트값으로
-		intro.setContents(multi.getParameter("Contents"));
-		intro.setImage(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
+		intro.setContents(request.getParameter("contents"));
+		intro.setImg1(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
+		intro.setImg2(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
+		intro.setImg3(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
+		intro.setImg4(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
+		intro.setImg5(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
+		intro.setImg6(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
+		
 		IntroWriteProService introWriteProService = new IntroWriteProService();
-		boolean isWriteSuccess = IntroWriteProService.registArticle(intro);
+		boolean isWriteSuccess = introWriteProService.registArticle(intro);
 		
 		if(!isWriteSuccess) {
 			response.setContentType("text/html;charset=UTF-8");

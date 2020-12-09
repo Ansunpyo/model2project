@@ -1,7 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="vo.Member" %>
 <!DOCTYPE html>
-<html>
+<%
+	Member loginMember = (Member)session.getAttribute("loginMember");
+	if(loginMember != null && loginMember.getId().equals("admin")) {
+		out.println("<script>location.href='indexad.do'</script>");
+	}
+%>
+<html lang="ko">
 <head>
 	<meta charset="utf-8">
 	<title>2LW</title>
@@ -17,7 +23,7 @@
 					<h2 class="blind">메인메뉴</h2>
 					<ul>
 						<li>
-							<a href="introduce.do">강사소개</a>
+							<a href="introList.do">강사소개</a>
 						</li>
 						<li>
 							<a href="#">강의목록</a>
@@ -25,19 +31,18 @@
 						<li>
 							<a href="#">마이페이지</a>
 							<ul>
-								<li><a href="#">개인정보 수정</a></li>
-								<li><a href="#">즐겨찾기 목록</a></li>
-								<li><a href="#">리뷰남기기</a></li>
-								<li><a href="#">쪽지함</a></li>
-								<li><a href="#">회원탈퇴</a></li>
+								<li><a href="editProfilePage.do">개인정보 수정</a></li>
+								<li><a href="favorites.do">즐겨찾기 목록</a></li>
+								<li><a href="review.do">리뷰남기기</a></li>
+								<li><a href="messenger.do">쪽지함</a></li>
+								<li><a href="quit.jsp">회원탈퇴</a></li>
 							</ul>
 						</li>
 						<li>
 							<a href="#">고객센터</a>
 							<ul>
-								<li><a href="#">자주묻는 질문</a></li>
-								<li><a href="#">1:1문의하기</a></li>
-								<li><a href="#">내가 남긴 리뷰 목록</a></li>
+								<li><a href="faq.do">자주묻는 질문</a></li>
+								<li><a href="one_on_one.do">1:1문의하기</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -124,7 +129,7 @@
 			<dl class="btm_menu">
 				<dt class="blind"><strong>바닥메뉴</strong></dt>
 				<dd><a href="#"><img src="./images/ico_in.png" alt="인스타그램으로 이동"></a></dd>
-				<dd><a href="#"><img src="./images/ico_tw.png" alt="트위터로 이동"></a></dd>
+				<dd><a href="#"><img src="./images/icosa_tw.png" alt="트위터로 이동"></a></dd>
 				<dd><a href="#"><img src="./images/ico_fb.png" alt="페이스북으로 이동"></a></dd>
 			</dl>
 			<p class="copy">copyright &copy; 2LW, All rights reserved.</p>

@@ -14,7 +14,7 @@ public class IntroListAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ArrayList<Intro> articleList = new ArrayList<Intro>();
 		int page=1;
-		int limit=10;
+		int limit=12;
 		
 		if(request.getParameter("page")!=null) {
 			page=Integer.parseInt(request.getParameter("page"));

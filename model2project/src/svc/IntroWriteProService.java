@@ -1,14 +1,13 @@
 package svc;
 
 import static db.JdbcUtil.*;
+
 import java.sql.Connection;
 import dao.IntroDAO;
 import vo.Intro;
 public class IntroWriteProService {
 	
-	public static boolean registArticle(Intro intro) throws
-	Exception {
-		
+	public static boolean registArticle(Intro intro) throws Exception {
 		
 		boolean isWriteSuccess = false;
 		Connection conn = getConnection();
