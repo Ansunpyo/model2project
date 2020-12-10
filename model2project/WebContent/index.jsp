@@ -23,7 +23,7 @@
 					<h2 class="blind">메인메뉴</h2>
 					<ul>
 						<li>
-							<a href="introList.do">강사소개</a>
+							<a href="introduce.do">강사소개</a>
 						</li>
 						<li>
 							<a href="#">강의목록</a>
@@ -35,7 +35,14 @@
 								<li><a href="favorites.do">즐겨찾기 목록</a></li>
 								<li><a href="review.do">리뷰남기기</a></li>
 								<li><a href="messenger.do">쪽지함</a></li>
-								<li><a href="quit.jsp">회원탈퇴</a></li>
+								<li><a href="quit.do">회원탈퇴</a></li>
+<%
+						if (loginMember != null) {
+%>
+								<li><a href="logout.do">로그아웃</a></li>
+<%
+						}
+%>
 							</ul>
 						</li>
 						<li>
@@ -83,7 +90,7 @@
 			</section>
 			<section class="notice">
 				<div class="news">
-					<h4 class="on">Community</h4>
+					<h4 class="on"><a href="freeBoard.do">Community</a></h4>
 					<ul>
 						<li><a href="#" title="팝업레이어 띄우기" class="popupWindow">Professor Peterson's class review</a> <span>2020.12.02</span></li>
 						<li><a href="#">Professor Jenson's class review</a> <span>2020.11.27</span></li>
@@ -129,7 +136,7 @@
 			<dl class="btm_menu">
 				<dt class="blind"><strong>바닥메뉴</strong></dt>
 				<dd><a href="#"><img src="./images/ico_in.png" alt="인스타그램으로 이동"></a></dd>
-				<dd><a href="#"><img src="./images/icosa_tw.png" alt="트위터로 이동"></a></dd>
+				<dd><a href="#"><img src="./images/ico_tw.png" alt="트위터로 이동"></a></dd>
 				<dd><a href="#"><img src="./images/ico_fb.png" alt="페이스북으로 이동"></a></dd>
 			</dl>
 			<p class="copy">copyright &copy; 2LW, All rights reserved.</p>

@@ -51,7 +51,7 @@
 <div class="container" id="main">
 <%
 	if(loginMember == null){
-		out.println("<script>alert('로그인이 필요합니다.');location.href='login.jsp';</script>");
+		out.println("<script>alert('로그인이 필요합니다.');location.href='loginPage.do';</script>");
 	} else {
 				int lastPage = (int)session.getAttribute("messageLastPage");
 				if (request.getParameter("page") != null) nowPageNumber = Integer.parseInt(request.getParameter("page"));
@@ -75,7 +75,8 @@
 				<div class="myPageMenu"><a href="favorites.do"><img src="images/heart_icon.png">&nbsp;즐겨찾기 목록</a></div>
 				<div class="myPageMenu"><a href="review.do"><img src="images/star_icon.png">&nbsp;리뷰남기기</a></div>
 				<div class="myPageMenu on"><a href="messenger.do"><img src="images/mail_icon.png">&nbsp;쪽지함</a></div>
-				<div class="myPageMenu"><a href="quit.jsp"><img src="images/x_mark_icon.png">&nbsp;회원 탈퇴</a></div>
+				<div class="myPageMenu"><a href="quit.do"><img src="images/x_mark_icon.png">&nbsp;회원 탈퇴</a></div>
+				<div class="myPageMenu"><a href="logout.do"><img src="images/door_icon.png">&nbsp;로그아웃</a></div>
 			</div>
 		</div>
 			<div class="contents">
@@ -91,6 +92,7 @@
 									</ul>
 								</li>
 <%
+		if(messageList != null) {
 				ArrayList<Message> mesList = messageList[0];
 				ArrayList<Member> memList = messageList[1];
 				
@@ -148,6 +150,7 @@
 	</div>
 	
 <%
+		}
 	}
 %>
 </div>

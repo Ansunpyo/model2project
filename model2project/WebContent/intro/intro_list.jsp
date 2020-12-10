@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="vo.PageInfo, vo.Intro, java.util.*, java.text.SimpleDateFormat" %>
+<%@ page import="vo.PageInfo, vo.Intro, vo.Member, java.util.*, java.text.SimpleDateFormat" %>
 <%
 	ArrayList<Intro> articleList = (ArrayList<Intro>)request.getAttribute("articleList");
+	Member loginMember = (Member) session.getAttribute("loginMember");
 	PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
 	int listCount = pageInfo.getListCount();
 	int nowPage = pageInfo.getPage();
@@ -53,7 +54,15 @@ body {
 	</nav>
 </header>
 	<div class="container" id="main">
+<%
+	if(loginMember == null){
+		out.println("<script>alert('로그인이 필요합니다.');location.href='login.jsp';</script>");
+	} else {
+%>
 		<table>
+<%
+	}
+%>		
 <%
 	if(articleList != null && listCount > 0) {
 %>

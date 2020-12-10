@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="vo.Intro, java.util.*, java.text.SimpleDateFormat"  %>
+<%@ page import="vo.Intro, vo.Member, java.util.*, java.text.SimpleDateFormat"  %>
 <%
 	Intro article = (Intro)request.getAttribute("article");
+	Member articlem = (Member)request.getAttribute("articlem");
 	String nowPage = (String)request.getAttribute("page");
 %>
 <!DOCTYPE html>
@@ -197,10 +198,11 @@
 		<section class="notice">
 			<div class="news">
 				<ul>
-					<li><a href="#" >교사이름</a> <span>안순표</span></li>
-					<li><a href="#">학력</a> <span>계명대학교</span></li>
-					<li><a href="#">전공</a> <span>경제학/정치학</span></li>
-					<li><a href="#">이메일</a> <span>qwer1234@qwer.com</span></li>
+					<li><a href="#" >교사이름</a><span><%=articlem.getName() %></span></li>
+					<li><a href="#">이메일</a> <span><%=articlem.getEmail() %></span></li>
+					<li><a href="#">성별</a> <span><%=articlem.getGender() %></span></li>
+					<li><a href="#">전공</a> <span><%=articlem.getMajor() %></span></li>
+					<li><a href="#">학력</a> <span><%=articlem.getEducation() %></span></li>
 				</ul>				
 			</div>
 		</section>

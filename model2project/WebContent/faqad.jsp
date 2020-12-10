@@ -36,9 +36,9 @@
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a class="nav-link" href="#">주문관리
 					</a></li>
-					<li class="nav-item"><a class="nav-link" href="#carrer">회원관리</a></li>
-					<li class="nav-item"><a class="nav-link" href="editProfilePage.do">정책관리</a></li>
-					<li class="nav-item active"><a class="nav-link" href="faq.do">마이페이지
+					<li class="nav-item"><a class="nav-link" href="members.do">회원관리</a></li>
+					<li class="nav-item"><a class="nav-link" href="logout.do">로그아웃</a></li>
+					<li class="nav-item active"><a class="nav-link" href="review.do">마이페이지
 							<span class="sr-only">(current)</span></a></li>
 				</ul>
 				<form class="form-inline my-2 my-lg-0">
@@ -53,7 +53,7 @@
 <div class="container" id="main">
 <%
 	if(loginMember == null){
-		out.println("<script>alert('로그인이 필요합니다.');location.href='login.jsp';</script>");
+		out.println("<script>alert('로그인이 필요합니다.');location.href='loginPage.do';</script>");
 	} else {
 				ArrayList<Faq> faqList = (ArrayList<Faq>)session.getAttribute("faqList");
 %>
@@ -65,7 +65,7 @@
 				<div class="myPageMenu"><a href="event.do"><img src="images/event_icon.png">&nbsp;이벤트 관리</a></div>
 				<div class="myPageMenu on"><a href="faq.do"><img src="images/faq_icon.png">&nbsp;FAQ 관리</a></div>
 				<div class="myPageMenu"><a href="category.do"><img src="images/category_icon.png">&nbsp;카테고리 관리</a></div>
-				<div class="myPageMenu"><a href="banner.jsp"><img src="images/banner_icon.png">&nbsp;메인배너 관리</a></div>
+				<div class="myPageMenu"><a href="banner.do"><img src="images/banner_icon.png">&nbsp;메인배너 관리</a></div>
 			</div>
 		</div>
 			<div class="contents justify-content-center">
